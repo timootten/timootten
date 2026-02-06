@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: Generate stats card
         uses: readme-tools/github-readme-stats-action@v1
@@ -26,5 +28,3 @@ jobs:
           git add profile/*.svg
           git commit -m "Update README cards" || exit 0
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
