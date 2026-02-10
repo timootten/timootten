@@ -15,15 +15,12 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Generate stats card
-        uses: lowlighter/metrics@latest
+        uses: readme-tools/github-readme-stats-action@v1
         with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&theme=midnight-purple&count_private=true&include_all_commits=true&hide_border=true&custom_title=GitHub%20Stats&show_owner=true
+          path: profile/stats.svg
           token: ${{ secrets.PAT }}
-          user: ${{ github.repository_owner }}
-          template: classic
-          base: header, activity, metadata, community, repositories
-          config_timezone: UTC
-          plugin_lines: yes
-          filename: profile/stats.svg
 
       - name: Generate top languages card
         uses: readme-tools/github-readme-stats-action@v1
